@@ -1,0 +1,51 @@
+﻿@using VetKlinik.Dto
+
+@model PersonelEkleGuncelleDto
+
+<div id="sizedBox"></div>
+
+
+<div class="card">
+    <div class="card-header">
+        Personel Güncelleme Sayfası
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Guncelle", "Personel", FormMethod.Post))
+        {
+            <div class="my-3">
+                <label class="form-label" for="Ad">Ad</label>
+                @Html.TextBoxFor(x => x.Ad, "", new { @class = "form-control", placeHolder = "Karizma" })
+                <label class="form-label" for="Soyad">Soyad</label>
+                @Html.TextBoxFor(x => x.Soyad, "", new { @class = "form-control", placeHolder = "xKralTr Gir o karambole kardşim" })
+                <label class="form-label" for="Unvan">Ünvan</label>
+                @Html.DropDownListFor(x => x.Unvan, Enum.GetValues(typeof(PersonelUnvan)).Cast<PersonelUnvan>().Select(v => new SelectListItem
+       {
+           Text = Enum.GetName(typeof(PersonelUnvan), v),
+           Value = v.ToString()
+       }), "Lütfen seçiniz", new { @class = "form-control" })
+
+                <label class="form-label" for="UzmanlikAlani">Uzmanlık Alanı</label>
+                @Html.TextBoxFor(x => x.UzmanlikAlani, "", new { @class = "form-control", placeHolder = "CS2 CSGO CS16 CS15" })
+                <label class="form-label" for="Deneyim">Deneyimleri</label>
+                @Html.TextBoxFor(x => x.Deneyim, "", new { @class = "form-control", placeHolder = "5 yıl csgo oyunculuğu" })
+                <label class="form-label" for="Egitim">Eğitim</label>
+                @Html.TextBoxFor(x => x.Egitim, "", new { @class = "form-control", placeHolder = "" })
+                <label class="form-label" for="FotoUrl">Fotoğraf Url</label>
+                @Html.TextBoxFor(x => x.FotoUrl, "", new { @class = "form-control", placeHolder = "" })
+                <label class="form-label" for="Facebook">Facebook</label>
+                @Html.TextBoxFor(x => x.Facebook, "", new { @class = "form-control", placeHolder = "Kullanan kaldı mı dayıcım" })
+                <label class="form-label" for="X">X</label>
+                @Html.TextBoxFor(x => x.X, "", new { @class = "form-control", placeHolder = "" })
+                <label class="form-label" for="Instagram">Instagram</label>
+                @Html.TextBoxFor(x => x.Instagram, "", new { @class = "form-control", placeHolder = "boş İş" })
+                <label class="form-label" for="LinkedIn">LinkedIn</label>
+                @Html.TextBoxFor(x => x.LinkedIn, "", new { @class = "form-control", placeHolder = "Codder serkan derseniz gösterirler" })
+
+            </div>
+
+            <button type="submit" class="btn btn-success my-3">
+                Kaydet
+            </button>
+        }
+    </div>
+</div>

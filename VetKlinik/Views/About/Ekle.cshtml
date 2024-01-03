@@ -1,0 +1,29 @@
+﻿@using VetKlinik.Dto
+
+@model GonderiEkleGuncelleDto
+
+<div id="sizedBox"></div>
+
+
+<div class="card">
+    <div class="card-header">
+        Personel Ekleme Sayfası
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Ekle", "Gonderi", FormMethod.Post))
+        {
+            <div class="my-3">
+                <label class="form-label" for="Baslik">Başlık</label>
+                @Html.TextBoxFor(x => x.Baslik, "", new { @class = "form-control", placeHolder = "Uvuvwevwevwe Onyetenyevwe Ugwemuhwem Osas" })
+                <label class="form-label" for="Icerik">İçerik</label>
+                @Html.TextBoxFor(x => x.Icerik, "", new { @class = "form-control", placeHolder = "xKralTr Gir o karambole kardşim" })
+                <label class="form-label" for="FotoUrl">Fotoğraf Url</label>
+                @Html.TextBoxFor(x => x.FotoUrl, "", new { @class = "form-control" })
+            </div>
+
+            <button type="submit" class="btn btn-success my-3">
+                Kaydet
+            </button>
+        }
+    </div>
+</div>

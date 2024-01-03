@@ -1,0 +1,55 @@
+﻿@model IletisimBilgileri
+
+<div id="sizedBox"></div>
+
+   
+<div class="card">
+    <div class="card-header">
+        <h2>İletişim Bilgileri</h2>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Sıra No</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Unvan</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    @if(Model!=null)
+                    {
+                        
+                    
+                    <td>@Model.Adres</td>
+                    @foreach (var email in Model.EmailAdresleri ?? new List<string>())
+                    {
+                        <td>@email</td>
+                            @*<td>@Html.ActionLink("Düzenle", "Guncelle", "IletisimBilgileri", new { id = Model.Id }, new { @class = "btn btn-warning" })</td>*@
+                            @*<td>@Html.ActionLink("Temizle", "Temizle", "IletisimBilgileri", new { id = Model.Id }, new { @class = "btn btn-warning" })</td>*@
+                            
+                    }
+                    @foreach (var tel in Model.TelefonNumaralari ?? new List<string>())
+                    {
+                        <td>@tel</td>
+                            @*<td>@Html.ActionLink("Düzenle", "Guncelle", "IletisimBilgileri", new { id = Model.Id }, new { @class = "btn btn-warning" })</td>*@
+                            @*<td>@Html.ActionLink("Temizle", "Temizle", "IletisimBilgileri", new { id = Model.Id }, new { @class = "btn btn-warning" })</td>*@
+                    }
+                    <td>@Model.FacebookLink</td>
+                    <td>@Model.XLink</td>
+                    <td>@Model.InstagramLink</td>
+                    <td>@Model.LinkedinLink</td>
+                    <td>@Model.PinterestLink</td>
+                        <td>@Html.ActionLink("Düzenle", "Guncelle", "IletisimBilgileri", new { id = Model.Id }, new { @class = "btn btn-warning" })</td>
+                    }
+                    </tr>
+                
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

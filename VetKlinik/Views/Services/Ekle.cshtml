@@ -1,0 +1,27 @@
+﻿@using VetKlinik.Dto
+@model HizmetlerEkleGuncelleDto
+
+<div id="sizedBox"></div>
+
+<div class="card">
+    <div class="card-header">
+        Hizmet Ekleme Sayfası
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Ekle", "Services", FormMethod.Post))
+        {
+            <div class="my-3">
+                <label class="form-label" for="Ad">Ad</label>
+                @Html.TextBoxFor(x => x.Ad, "", new { @class = "form-control", placeHolder = "Diz çöktüğümüzü görmek isteyen camiye gelsin, hayırlı cumalar (cumalar)" })
+                <label class="form-label" for="Aciklama">Açıklama</label>
+                @Html.TextBoxFor(x => x.Aciklama, "", new { @class = "form-control", placeHolder = "xKralTr Gir o karambole kardşim" })
+                <label class="form-label text-transform-none" for="Icon">İkon Sınıfı</label>
+                @Html.TextBoxFor(x => x.Icon, "", new { @class = "form-control", placeHolder = "FontAwesome ikon sınıfını girin örnek: fas fa-notes-medical" })
+            </div>
+
+            <button type="submit" class="btn btn-success my-3">
+                Kaydet
+            </button>
+        }
+    </div>
+</div>

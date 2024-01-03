@@ -1,0 +1,77 @@
+﻿@using VetKlinik.Dto
+
+@model IletisimBilgileriEkleGuncelleDto
+
+@{
+    var model = Model ?? new IletisimBilgileriEkleGuncelleDto();
+}
+
+
+<div id="sizedBox"></div>
+
+<div class="card">
+    <div class="card-header">
+        İletişim Bilgileri Düzenleme Sayfası
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Guncelle", "IletisimBilgileri", FormMethod.Post))
+        {
+            <div class="my-3">
+                <label class="form-label text-transform-none" for="Adres">Adres</label>
+                @Html.TextBoxFor(x => x.Adres, "", new { @class = "form-control", placeHolder = "" })
+                <label class="form-label text-transform-none" for="Adres">Adres</label>
+
+                <label class="form-label text-transform-none" for="telefonNumaralari"> Telefon Numaraları</label>
+                <div id="telefonNumaralari">
+
+                    @if (model.TelefonNumaralari != null)
+                    {
+                        int i = 0;
+                        foreach (var telefon in model.TelefonNumaralari)
+                        {
+                            @Html.TextBox("TelefonNumaralari[" + i + "]", telefon ?? "", new { @class = "form-control" })
+                            i++;
+                        }
+                    }
+                </div>
+                <button class="btn" type="button" id="telefonEkle">Telefon Ekle</button>
+                <br />
+
+                <label class="form-label text-transform-none" for="emailAdresleri"> Email Adresleri</label>
+                <div id="emailAdresleri">
+                    @if (model.EmailAdresleri != null)
+                    {
+                        int j = 0;
+                        foreach (var email in model.EmailAdresleri)
+                        {
+                            @Html.TextBox("EmailAdresleri[" + j + "]", email ?? "", new { @class = "form-control" })
+                            j++;
+                        }
+                    }
+                </div>
+                <button class="btn" type="button" id="emailEkle">E-posta Ekle</button>
+                <br />
+
+                <label class="form-label text-transform-none" for="FacebookLink"> Facebook Linki</label>
+                @Html.TextBoxFor(x => x.FacebookLink, "", new { @class = "form-control", placeHolder = "" })
+
+                <label class="form-label text-transform-none" for="XLink">XLink Linki</label>
+                @Html.TextBoxFor(x => x.XLink, "", new { @class = "form-control", placeHolder = "" })
+
+                <label class="form-label text-transform-none" for="InstagramLink">InstagramLink Linki</label>
+                @Html.TextBoxFor(x => x.InstagramLink, "", new { @class = "form-control", placeHolder = "" })
+
+                <label class="form-label text-transform-none" for="LinkedinLink">LinkedinLink Linki</label>
+                @Html.TextBoxFor(x => x.LinkedinLink, "", new { @class = "form-control", placeHolder = "" })
+
+                <label class="form-label" for="PinterestLink">PinterestLink Linki</label>
+                @Html.TextBoxFor(x => x.PinterestLink, "", new { @class = "form-control", placeHolder = "" })
+
+            </div>
+
+            <button type="submit" class="btn btn-success my-3">
+                Kaydet
+            </button>
+        }
+    </div>
+</div>

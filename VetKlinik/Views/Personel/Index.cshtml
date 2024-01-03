@@ -1,0 +1,37 @@
+﻿@model List<Personel>
+
+<div id="sizedBox"></div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Personeller</h2>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            @Html.ActionLink("Ekle", "Ekle", "Personel", null, new { @class = "btn btn-primary my-3" })
+            <thead>
+                <tr>
+                    <th>Sıra No</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Unvan</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].Ad</td>
+                        <td>@Model[i].Soyad</td>
+                        <td>@Model[i].Unvan</td>
+                        <td>@Html.ActionLink("Düzenle", "Guncelle", "Personel", new { id = Model[i].Id }, new { @class = "btn btn-warning" })</td>
+                        <td>@Html.ActionLink("Sil", "Sil", "Personel", new { id = Model[i].Id }, new { @class = "btn btn-warning" })</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
