@@ -15,7 +15,7 @@ namespace VetKlinik.Data
         public DbSet<IletisimBilgileri> IletisimBilgileri { get; set; }
         public DbSet<Materyal> Materyaller { get; set; }
         public DbSet<SoruCevap> SoruCevaplar { get; set; }
-        public DbSet<Gonderi> Gonderiler { get; set; }
+        public DbSet<Gonderi> Gonderiler{ get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

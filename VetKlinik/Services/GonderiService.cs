@@ -24,7 +24,7 @@ namespace VetKlinik.Services
 
         public List<Gonderi> GetGonderiler()
         {
-            return _context.Gonderiler.OrderBy(x => x.Baslik).ToList();
+            return _context.Gonderiler.OrderBy(x => x.BaslikBir).ToList();
         }
 
         public Gonderi GetGonderilerById(int id)
@@ -48,9 +48,13 @@ namespace VetKlinik.Services
         {
             _context.Gonderiler.Add(new Gonderi
             {
-                Baslik = input.Baslik,
+                BaslikBir = input.BaslikBir,
+                BaslikIki = input.BaslikIki,
+                AltBaslik = input.AltBaslik,
                 Icerik = input.Icerik,
                 FotoUrl = input.FotoUrl,
+                Height = input.Height,
+                Width = input.Width,
             });
             _context.SaveChanges();
         }
@@ -60,9 +64,13 @@ namespace VetKlinik.Services
             var gelenGonderi = _context.Gonderiler.Where(x => x.Id == input.Id.Value).FirstOrDefault();
             if (gelenGonderi != null)
             {
-                gelenGonderi.Baslik = input.Baslik;
+                gelenGonderi.BaslikBir = input.BaslikBir;
+                gelenGonderi.BaslikIki = input.BaslikIki;
+                gelenGonderi.AltBaslik = input.AltBaslik;
                 gelenGonderi.Icerik = input.Icerik;
                 gelenGonderi.FotoUrl = input.FotoUrl;
+                gelenGonderi.Height = input.Height;
+                gelenGonderi.Width = input.Width;
                 _context.Gonderiler.Update(gelenGonderi);
                 _context.SaveChanges(); 
             }

@@ -12,8 +12,8 @@ using VetKlinik.Data;
 namespace VetKlinik.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240103001046_init")]
-    partial class init
+    [Migration("20240102190310_sa")]
+    partial class sa
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -255,13 +255,25 @@ namespace VetKlinik.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Baslik")
+                    b.Property<string>("AltBaslik")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BaslikBir")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BaslikIki")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FotoUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Height")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Icerik")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Width")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

@@ -19,7 +19,6 @@
             <div class="my-3">
                 <label class="form-label text-transform-none" for="Adres">Adres</label>
                 @Html.TextBoxFor(x => x.Adres, "", new { @class = "form-control", placeHolder = "" })
-                <label class="form-label text-transform-none" for="Adres">Adres</label>
 
                 <label class="form-label text-transform-none" for="telefonNumaralari"> Telefon Numaraları</label>
                 <div id="telefonNumaralari">
@@ -66,7 +65,6 @@
 
                 <label class="form-label" for="PinterestLink">PinterestLink Linki</label>
                 @Html.TextBoxFor(x => x.PinterestLink, "", new { @class = "form-control", placeHolder = "" })
-
             </div>
 
             <button type="submit" class="btn btn-success my-3">
@@ -75,3 +73,25 @@
         }
     </div>
 </div>
+
+
+<!-- JavaScript kodu -->
+<script>
+    document.getElementById('telefonEkle').addEventListener('click', function () {
+        var telefonlarDiv = document.getElementById('telefonNumaralari');
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'TelefonNumaralari[]';
+        input.className = 'form-control';
+        telefonlarDiv.appendChild(input);
+    });
+
+    document.getElementById('emailEkle').addEventListener('click', function () {
+        var emaillerDiv = document.getElementById('emailAdresleri');
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'EmailAdresleri[]';
+        input.className = 'form-control';
+        emaillerDiv.appendChild(input);
+    });
+</script>

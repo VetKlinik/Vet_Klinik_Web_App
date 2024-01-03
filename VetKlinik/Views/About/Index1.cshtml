@@ -4,17 +4,21 @@
 
 <div class="card">
     <div class="card-header">
-        <h2>Personeller</h2>
+        <h2>Hakkında</h2>
     </div>
     <div class="card-body">
         <table class="table table-striped">
-            @Html.ActionLink("Ekle", "Ekle", "Gonderi", null, new { @class = "btn btn-primary my-3" })
+            @Html.ActionLink("Ekle", "Ekle", "About", null, new { @class = "btn btn-primary my-3" })
             <thead>
                 <tr>
                     <th>Sıra No</th>
-                    <th>Ad</th>
-                    <th>Soyad</th>
-                    <th>Unvan</th>
+                    <th>Başlık Birinci Kelime</th>
+                    <td>Başlık İkinci Kelime</td>
+                    <td>Başlık İkinci Kelime</td>
+                    <th>İçerik</th>
+                    <th>FotoUrl</th>
+                    <th>Yükseklik</th>
+                    <th>Genişlik</th>
                     <th></th>
                 </tr>
             </thead>
@@ -23,11 +27,15 @@
                 {
                     <tr>
                         <td>@(i + 1)</td>
-                        <td>@Model[i].Baslik</td>
+                        <td>@Model[i].BaslikBir</td>
+                        <td>@Model[i].BaslikBir</td>
+                        <td>@Model[i].AltBaslik</td>
                         <td>@Model[i].Icerik</td>
                         <td>@Model[i].FotoUrl</td>
-                        <td>@Html.ActionLink("Düzenle", "Guncelle", "Gonderi", new { id = Model[i].Id }, new { @class = "btn btn-warning" })</td>
-                        <td>@Html.ActionLink("Sil", "Sil", "Gonderi", new { id = Model[i].Id }, new { @class = "btn btn-warning" })</td>
+                        <td>@Model[i].Height</td>
+                        <td>@Model[i].Width</td>
+                        <td>@Html.ActionLink("Düzenle", "Guncelle", "About", new { id = Model[i].Id }, new { @class = "btn btn-warning" })</td>
+                        <td>@Html.ActionLink("Sil", "Sil", "About", new { id = Model[i].Id }, new { @class = "btn btn-warning" })</td>
                     </tr>
                 }
 

@@ -252,13 +252,25 @@ namespace VetKlinik.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Baslik")
+                    b.Property<string>("AltBaslik")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BaslikBir")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BaslikIki")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FotoUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Height")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Icerik")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Width")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

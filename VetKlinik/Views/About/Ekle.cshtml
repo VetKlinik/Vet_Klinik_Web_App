@@ -10,15 +10,23 @@
         Personel Ekleme Sayfası
     </div>
     <div class="card-body">
-        @using (Html.BeginForm("Ekle", "Gonderi", FormMethod.Post))
+        @using (Html.BeginForm("Ekle", "About", FormMethod.Post))
         {
             <div class="my-3">
-                <label class="form-label" for="Baslik">Başlık</label>
-                @Html.TextBoxFor(x => x.Baslik, "", new { @class = "form-control", placeHolder = "Uvuvwevwevwe Onyetenyevwe Ugwemuhwem Osas" })
+                <label class="form-label" for="BaslikBir">Başlık Birinci Kelime</label>
+                @Html.TextBoxFor(x => x.BaslikBir, "", new { @class = "form-control", placeHolder = "Uvuvwevwevwe Onyetenyevwe Ugwemuhwem Osas" })
+                <label class="form-label" for="BaslikIki">Başlık İkinci Kelime</label>
+                @Html.TextBoxFor(x => x.BaslikIki, "", new { @class = "form-control" })
+                <label class="form-label" for="AltBaslik">Alt Başlık</label>
+                @Html.TextBoxFor(x => x.AltBaslik, "", new { @class = "form-control" })
                 <label class="form-label" for="Icerik">İçerik</label>
                 @Html.TextBoxFor(x => x.Icerik, "", new { @class = "form-control", placeHolder = "xKralTr Gir o karambole kardşim" })
                 <label class="form-label" for="FotoUrl">Fotoğraf Url</label>
                 @Html.TextBoxFor(x => x.FotoUrl, "", new { @class = "form-control" })
+                <label class="form-label" for="Height">Yükseklik</label>
+                @Html.TextBoxFor(x => x.Height, "", new { @class = "form-control" })
+                <label class="form-label" for="Weight">Genişlik</label>
+                @Html.TextBoxFor(x => x.Width, "", new { @class = "form-control" })
             </div>
 
             <button type="submit" class="btn btn-success my-3">

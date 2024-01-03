@@ -17,7 +17,9 @@ namespace VetKlinik.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var gonderiler = _service.GetGonderiler();
+
+            return View(gonderiler);
         }
 
         public IActionResult Index1()
@@ -46,9 +48,13 @@ namespace VetKlinik.Controllers
             {
                 var model = new GonderiEkleGuncelleDto
                 {
-                    Baslik = gonderi.Baslik,
+                    BaslikBir = gonderi.BaslikBir,
+                    BaslikIki = gonderi.BaslikIki,
+                    AltBaslik = gonderi.AltBaslik,
                     Icerik = gonderi.Icerik,
                     FotoUrl = gonderi.FotoUrl,
+                    Height = gonderi.Height,
+                    Width = gonderi.Width,
                 };
                 return View(model);
             }
@@ -59,7 +65,7 @@ namespace VetKlinik.Controllers
         public IActionResult Guncelle(GonderiEkleGuncelleDto input)
         {
             _service.GonderilerEkleGuncelle(input);
-            return View();
+            return RedirectToAction("Index1");
         }
         public IActionResult Sil(int id)
         {

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace VetKlinik.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class sa : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -70,9 +70,13 @@ namespace VetKlinik.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Baslik = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BaslikBir = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BaslikIki = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AltBaslik = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Icerik = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FotoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FotoUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Height = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Width = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -11,15 +11,22 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Sıra No</th>
-                    <th>Ad</th>
-                    <th>Soyad</th>
-                    <th>Unvan</th>
-                    <th></th>
+                    <th>Adres</th>
+                    <th>TelNo</th>
+                    <th>Email Adres</th>
+                    <th>FacebookLink</th>
+                    <th>XLink</th>
+                    <th>InstagramLink</th>
+                    <th>LinkedinLink</th>
+                    <th>PinterestLink</th>
+                    <th>İşlem</th>
+
+                    
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    
                     @if(Model!=null)
                     {
                         
@@ -43,9 +50,10 @@
                     <td>@Model.InstagramLink</td>
                     <td>@Model.LinkedinLink</td>
                     <td>@Model.PinterestLink</td>
-                        <td>@Html.ActionLink("Düzenle", "Guncelle", "IletisimBilgileri", new { id = Model.Id }, new { @class = "btn btn-warning" })</td>
+                    
+                    <td>@Html.ActionLink("Düzenle", "Guncelle", "IletisimBilgileri", new { id = Model.Id }, new { @class = "btn btn-warning" })</td>
                     }
-                    </tr>
+                </tr>
                 
 
             </tbody>
