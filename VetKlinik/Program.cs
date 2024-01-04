@@ -32,6 +32,7 @@ namespace VetKlinik
             builder.Services.AddScoped<IRandevuService, RandevuService>();
             builder.Services.AddScoped<ISoruCevapService, SoruCevapService>();
             builder.Services.AddScoped<IGonderiService, GonderiService>();
+            builder.Services.AddScoped<ICommentsService, CommentsService>();
 
             builder.Services.AddControllersWithViews();
 

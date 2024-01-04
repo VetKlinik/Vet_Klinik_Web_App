@@ -1,0 +1,27 @@
+﻿@using VetKlinik.Dto
+@model CommentsEkleGuncelleDto
+
+<div id="sizedBox"></div>
+
+<div class="card">
+    <div class="card-header">
+        Yorum Ekleme Sayfası
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Ekle", "Review", FormMethod.Post))
+        {
+            <div class="my-3">
+                <label class="form-label" for="Ad">Ad</label>
+                @Html.TextBoxFor(x => x.Ad, "", new { @class = "form-control", placeHolder = "Yorumlar kısmında görünecek adınızı giriniz" })
+                <label class="form-label" for="Yorum">Yorum</label>
+                @Html.TextBoxFor(x => x.Yorum, "", new { @class = "form-control", placeHolder = "Yorumunuzu yazınız" })
+                <label class="form-label" for="Yorum">Puan</label>
+                @Html.TextBoxFor(x => x.Puan, "", new { @class = "form-control", placeHolder = "1-5 arası puan giriniz" })
+            </div>
+
+            <button type="submit" class="btn btn-success my-3">
+                Kaydet
+            </button>
+        }
+    </div>
+</div>

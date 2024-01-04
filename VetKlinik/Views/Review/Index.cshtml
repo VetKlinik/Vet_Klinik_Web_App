@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Comments>
 
 <section class="review" id="review">
 
@@ -7,45 +7,27 @@
     <div class="box-container">
 
 
-
-
-        <div class="box">
-            <img src="~/images/guy-walking-with-dog-in-the-park.svg" alt="" />
-            <h3>Serkan Özdemir</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+        @foreach (var comment in Model)
+        {
+            <div class="box">
+                <img src="~/images/guy-walking-with-dog-in-the-park.svg" alt="" />
+                <h3>@comment.Ad</h3>
+                <div class="stars">
+                    <p>@comment.Puan</p>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="text">@comment.Yorum</p>
+                <a href="#" class="btn"> Daha Fazlası <span class="fas fa-chevron-right"></span></a>
             </div>
-            <p class="text">
-                Lorem ipsum dolor sit amet consetur adipsici elit. asdloa spaientenihil aperiam.
-                Lorem ipsum dolor sit amet consetur adipsici elit. asdloa spaientenihil aperiam.
-                Lorem ipsum dolor sit amet consetur adipsici elit. asdloa spaientenihil aperiam
-            </p>
-        </div>
+        }
 
         <div class="box">
             <img src="~/images/guy-walking-with-dog-in-the-park.svg" alt="" />
-            <h3>Serkan Özdemir</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
-            <p class="text">
-                Lorem ipsum dolor sit amet consetur adipsici elit. asdloa spaientenihil aperiam.
-                Lorem ipsum dolor sit amet consetur adipsici elit. asdloa spaientenihil aperiam.
-                Lorem ipsum dolor sit amet consetur adipsici elit. asdloa spaientenihil aperiam
-            </p>
-        </div>
-
-        <div class="box">
-            <img src="~/images/guy-walking-with-dog-in-the-park.svg" alt="" />
-            <h3>Serkan Özdemir</h3>
+            <h3>Vettel</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
