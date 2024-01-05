@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "sweetalert2": "^11.10.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  }
+}

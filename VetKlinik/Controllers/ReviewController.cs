@@ -41,6 +41,7 @@ namespace VetKlinik.Controllers
         {
             _commentsContext.CommentsEkleGuncelle(input);
 
+            System.Threading.Thread.Sleep(1000);
             return RedirectToAction("Index1");
         }
 

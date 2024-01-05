@@ -1,6 +1,10 @@
 ﻿@using VetKlinik.Dto
 @model CommentsEkleGuncelleDto
 
+<link rel="stylesheet" href="sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/js/alerts.js"></script>
+
 <div id="sizedBox"></div>
 
 <div class="card">
@@ -19,9 +23,7 @@
                 @Html.TextBoxFor(x => x.Puan, "", new { @class = "form-control", placeHolder = "1-5 arası puan giriniz" })
             </div>
 
-            <button type="submit" class="btn btn-success my-3">
-                Kaydet
-            </button>
+            <button type="submit" class="btn btn-success my-3" onclick="showSuccessMessage()">Kaydet</button>
         }
     </div>
 </div>
