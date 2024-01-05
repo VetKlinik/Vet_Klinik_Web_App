@@ -21,8 +21,8 @@ namespace VetKlinik
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-
-            //hata verdi
+            builder.Services.AddRazorPages(); //Eklendi
+            
             builder.Services.AddScoped<IPersonelService, PersonelService>();
             builder.Services.AddScoped<IFotografService, FotografService>();
             builder.Services.AddScoped<IHizmetlerService, HizmetlerService>();
@@ -56,6 +56,8 @@ namespace VetKlinik
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.MapRazorPages(); //Eklendi
 
             app.MapControllerRoute(
                 name: "default",

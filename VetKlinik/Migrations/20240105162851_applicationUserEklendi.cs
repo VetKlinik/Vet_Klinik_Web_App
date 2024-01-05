@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace VetKlinik.Migrations
 {
     /// <inheritdoc />
-    public partial class sa : Migration
+    public partial class applicationUserEklendi : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,6 +30,10 @@ namespace VetKlinik.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Discriminator = table.Column<string>(type: "nvarchar(21)", maxLength: 21, nullable: false),
+                    Ad = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Soyad = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TelNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -156,6 +160,21 @@ namespace VetKlinik.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Personel", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Yorumlar",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Ad = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Yorum = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Puan = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Yorumlar", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -456,6 +475,9 @@ namespace VetKlinik.Migrations
 
             migrationBuilder.DropTable(
                 name: "SoruCevap");
+
+            migrationBuilder.DropTable(
+                name: "Yorumlar");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
