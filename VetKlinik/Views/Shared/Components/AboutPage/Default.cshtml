@@ -1,0 +1,18 @@
+﻿@model List<About>
+
+<table>
+    <tr>
+        <th>About Text</th>
+        <th>Contact Email</th>
+        <th>Contact Phone</th>
+    </tr>
+
+    @foreach (var aboutItem in Model)
+    {
+        <tr>
+            <td>@aboutItem.AboutTxt</td>
+            <td>@aboutItem.ContactEmail</td>
+            <td>@aboutItem.ContactPhone</td>
+        </tr>
+    }
+</table>

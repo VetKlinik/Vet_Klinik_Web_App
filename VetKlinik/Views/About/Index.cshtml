@@ -76,3 +76,11 @@
 
     <div class="credit"> created by <span>Serkan Özdemir</span></div>
 </section>
+
+@{
+    //TODO View Component kullanımı
+};
+@section AboutTxt
+{
+    @await Component.InvokeAsync("AboutPage")
+}
