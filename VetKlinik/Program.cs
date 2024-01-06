@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using VetKlinik.Data;
 using VetKlinik.Services;
@@ -18,8 +19,8 @@ namespace VetKlinik
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders(); //AddDefaultTokenProviders() eklendi, token bulunamadý hatasý giderildi.
 
             builder.Services.AddRazorPages(); //Eklendi
 
@@ -34,6 +35,8 @@ namespace VetKlinik
             builder.Services.AddScoped<ISoruCevapService, SoruCevapService>();
             builder.Services.AddScoped<IGonderiService, GonderiService>();
             builder.Services.AddScoped<ICommentsService, CommentsService>();
+
+            builder.Services.AddScoped<IEmailSender, EmailSender>(); //register hatasý için yazýldý
 
             builder.Services.AddControllersWithViews();
 
@@ -62,10 +65,23 @@ namespace VetKlinik
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=IletisimBilgileri}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
 
+            string GenerateRandomId()
+            {
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var random = new Random();
+                var id = new string(Enumerable.Repeat(chars, 36)
+                  .Select(s => s[random.Next(s.Length)]).ToArray());
+                return id;
+            }
+
+            var id = GenerateRandomId();
+            Console.WriteLine(id);
+
             app.Run();
+            
         }
     }
 }

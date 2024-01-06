@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using VetKlinik.Data;
 using VetKlinik.Dto;
 using VetKlinik.Models;
 using VetKlinik.Services;
@@ -23,19 +25,19 @@ namespace VetKlinik.Controllers
 
             return View(comments);
         }
-
+        [Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Index1()
         {
             var comments = _commentsContext.GetComments();
 
             return View(comments);
         }
-
+        [Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Ekle()
         {
             return View(); 
         }
-
+        [Authorize(Roles = UserRoles.Role_Admin)]
         [HttpPost]
         public IActionResult Ekle(CommentsEkleGuncelleDto input)
         {
@@ -48,7 +50,7 @@ namespace VetKlinik.Controllers
             System.Threading.Thread.Sleep(1000);
             return RedirectToAction("Index1");
         }
-
+        [Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Guncelle(int id)
         {
             var comments = _commentsContext.GetCommentsById(id);
@@ -66,14 +68,14 @@ namespace VetKlinik.Controllers
             }
             return View();
         }
-
+        [Authorize(Roles = UserRoles.Role_Admin)]
         [HttpPost]
         public IActionResult Guncelle(CommentsEkleGuncelleDto input)
         {
             _commentsContext.CommentsEkleGuncelle(input);
             return RedirectToAction("Index1");
         }
-
+        [Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Sil(int id)
         {
             _commentsContext.DeleteCommentById(id);

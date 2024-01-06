@@ -41,11 +41,13 @@ namespace VetKlinik.Controllers
             var hizmetler = _hizmetlerService.GetHizmetler();
             ViewBag.hizmetler = hizmetler;
 
-
+            
 
             return View();
         }
 
+
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
