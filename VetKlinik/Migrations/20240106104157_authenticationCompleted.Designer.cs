@@ -12,8 +12,8 @@ using VetKlinik.Data;
 namespace VetKlinik.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240105162851_applicationUserEklendi")]
-    partial class applicationUserEklendi
+    [Migration("20240106104157_authenticationCompleted")]
+    partial class authenticationCompleted
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

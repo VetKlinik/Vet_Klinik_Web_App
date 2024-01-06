@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace VetKlinik.Migrations
 {
     /// <inheritdoc />
-    public partial class applicationUserEklendi : Migration
+    public partial class authenticationCompleted : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
