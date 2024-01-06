@@ -76,7 +76,7 @@
                 @foreach (var service in ((List<Hizmetler>)ViewBag.hizmetler))
                 {
                     <a href="#">
-                        <i class="fas fa-chevron-right"></i>@service.Ad
+                        <i class="@service.Icon"></i>@service.Ad
                     </a>
                 }
             </div>
