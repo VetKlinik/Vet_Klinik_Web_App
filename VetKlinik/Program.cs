@@ -22,7 +22,8 @@ namespace VetKlinik
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             builder.Services.AddRazorPages(); //Eklendi
-            
+
+            //TODO Dependency Injection kullanýmý
             builder.Services.AddScoped<IPersonelService, PersonelService>();
             builder.Services.AddScoped<IFotografService, FotografService>();
             builder.Services.AddScoped<IHizmetlerService, HizmetlerService>();

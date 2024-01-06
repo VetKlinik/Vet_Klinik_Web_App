@@ -39,6 +39,10 @@ namespace VetKlinik.Controllers
         [HttpPost]
         public IActionResult Ekle(CommentsEkleGuncelleDto input)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Ekle");
+            }
             _commentsContext.CommentsEkleGuncelle(input);
 
             System.Threading.Thread.Sleep(1000);

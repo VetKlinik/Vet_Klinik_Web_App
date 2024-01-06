@@ -1,4 +1,5 @@
 ﻿@using VetKlinik.Dto
+@using VetKlinik.Extensions
 @model HizmetlerEkleGuncelleDto
 
 <div id="sizedBox"></div>
@@ -18,10 +19,9 @@
                 <label class="form-label text-transform-none" for="Icon">İkon Sınıfı</label>
                 @Html.TextBoxFor(x => x.Icon, "", new { @class = "form-control", placeHolder = "FontAwesome ikon sınıfını girin örnek: fas fa-notes-medical" })
             </div>
-
-            <button type="submit" class="btn btn-success my-3">
-                Kaydet
-            </button>
+            
+            //TODO custom tag helper kullanımı
+            <custom-submit-button text="Kaydet"></custom-submit-button>
         }
     </div>
 </div>

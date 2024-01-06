@@ -1,5 +1,8 @@
 ﻿@model List<Comments>
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
 <section class="review" id="review">
 
     <h1 class="heading"> Müşteri <span>Yorumları</span></h1>
@@ -91,4 +94,21 @@
     </div>
 
     <div class="credit"> created by <span>Serkan Özdemir</span></div>
+
+    @{
+        //TODO jquery kullanımı
+    };
+    <div class="credit">
+        <button class="btn btn-success my-3" id="changeTextButton">Patili Dostlarımızı Seviyorsan Tıkla</button>
+        <p id="targetText">???</p>
+
+        <script>
+            $(document).ready(function () {
+                $("#changeTextButton").click(function () {
+                    $("#targetText").text("Bizde Öyle Düşünmüştük! Görüşün İçin Teşekkürler :)");
+                });
+            });
+        </script>
+    </div>
+
 </section>
