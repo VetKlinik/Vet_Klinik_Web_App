@@ -9,7 +9,7 @@ namespace VetKlinik.Models
         public int MusteriId { get; set; }
         public int PersonelId { get; set; }
         [ForeignKey("MusteriId")]
-        public ApplicationUser MusteriFk { get; set; }
+        public Musteri MusteriFk { get; set; }
         [ForeignKey("PersonelId")]
         public Personel PersonelFk { get; set; }
         public DateTime Tarih { get; set; }
