@@ -13,7 +13,7 @@ namespace VetKlinik.Dto
         public int? MusteriId { get; set; }
         public int? PersonelId { get; set; }
         [ForeignKey("MusteriId")]
-        public Musteri? MusteriFk { get; set; }
+        public ApplicationUser? MusteriFk { get; set; }
         [ForeignKey("PersonelId")]
         public Personel? PersonelFk { get; set; }
     }

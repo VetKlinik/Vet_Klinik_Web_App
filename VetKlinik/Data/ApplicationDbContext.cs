@@ -7,7 +7,6 @@ namespace VetKlinik.Data
     public class ApplicationDbContext : IdentityDbContext
     {
 
-        public DbSet<Musteri> Musteriler { get; set; }
         public DbSet<Personel> Personeller { get; set; }
         public DbSet<Randevu> Randevular { get; set; }
         public DbSet<Fotograf> Fotograflar { get; set; }
