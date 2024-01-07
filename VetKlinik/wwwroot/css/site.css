@@ -28,3 +28,14 @@ body {
 .input-validation-error {
     border: 2px solid red;
 }
+
+#logom {
+    font-size: 1.8rem;
+    color: var(--green);
+    /*margin-left: 25px;*/
+    text-align:center;
+}
+
+#adminMenu{
+    text-align:start;
+}
