@@ -12,7 +12,7 @@ using VetKlinik.Data;
 namespace VetKlinik.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240107082659_guncellendi")]
+    [Migration("20240107191901_guncellendi")]
     partial class guncellendi
     {
         /// <inheritdoc />

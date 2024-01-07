@@ -16,7 +16,7 @@
     <!--font awesome linki aşağıda-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" asp-append-version="true" />
     <!--css dosyasının yolunu verdim-->
-    <link rel="stylesheet" href="~/css/style.css" />
+    
 
 </head>
 
@@ -421,6 +421,7 @@
             <section class="content">
                 <div class="container-fluid">
                     @RenderBody()
+                    @* @await RenderSectionAsync("Scripts", required: false) *@
                         @* @RenderSection("scripts", required: false) *@
                 </div>
             </section>
@@ -507,6 +508,9 @@
 <script src="~/dist/js/adminlte.js"></script>
 
 
+@{
+    //TODO jquery datatable kullanımı
+}
         <script>
             $(function () {
                 $("#example1").DataTable({

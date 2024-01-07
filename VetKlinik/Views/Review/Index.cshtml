@@ -1,4 +1,7 @@
-﻿@model List<Comments>
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+
+@model IPagedList<Comments>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -28,25 +31,14 @@
             </div>
         }
 
-        <div class="box">
-            <img src="~/images/guy-walking-with-dog-in-the-park.svg" alt="" />
-            <h3>Vettel</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
-            <p class="text">
-                Lorem ipsum dolor sit amet consetur adipsici elit. asdloa spaientenihil aperiam.
-                Lorem ipsum dolor sit amet consetur adipsici elit. asdloa spaientenihil aperiam.
-                Lorem ipsum dolor sit amet consetur adipsici elit. asdloa spaientenihil aperiam
-            </p>
-        </div>
+        
 
     </div>
+    <div class="btn btn-success my-3">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+    </div>
 </section>
+
 
 <section class="footer">
     <div class="box-container">

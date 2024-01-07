@@ -5,6 +5,7 @@ using VetKlinik.Data;
 using VetKlinik.Dto;
 using VetKlinik.Models;
 using VetKlinik.Services;
+using X.PagedList;
 
 namespace VetKlinik.Controllers
 {
@@ -17,9 +18,9 @@ namespace VetKlinik.Controllers
             _commentsContext = commentsContext;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            var comments = _commentsContext.GetComments();
+            var comments = _commentsContext.GetComments().ToPagedList(page, 4);
 
             ViewBag.Comments = comments;
 
