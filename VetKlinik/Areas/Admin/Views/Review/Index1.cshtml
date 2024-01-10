@@ -1,0 +1,39 @@
+﻿@model List<Comments>
+
+<div id="sizedBox"></div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Yorumlar</h2>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            @Html.ActionLink("Ekle", "Ekle", "Review", null, new { @class = "btn btn-primary my-3" })
+            <span style="margin-left: 10px;"></span>
+            @Html.ActionLink("Görüntüle", "Index", "Review", null, new { @class = "btn btn-primary my-3" })
+            <thead>
+                <tr>
+                    <th>Sıra No</th>
+                    <th>Ad</th>
+                    <th>Yorum</th>
+                    <th>Puan</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].Ad</td>
+                        <td>@Model[i].Yorum</td>
+                        <td>@Model[i].Puan</td>
+                        <td>@Html.ActionLink("Düzenle", "Guncelle", "Review", new { id = Model[i].Id }, new { @class = "btn btn-warning" })</td>
+                        <td>@Html.ActionLink("Sil", "Sil", "Review", new { id = Model[i].Id }, new { @class = "btn btn-warning" })</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -67,4 +67,13 @@
     <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Doctors\Controllers\" />
+    <Folder Include="Areas\Doctors\Data\" />
+    <Folder Include="Areas\Doctors\Models\" />
+    <Folder Include="Areas\Doctors\Views\" />
+  </ItemGroup>
+
 </Project>

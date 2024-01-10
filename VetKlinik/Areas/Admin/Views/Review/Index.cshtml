@@ -1,69 +1,44 @@
-﻿@model List<Hizmetler>
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
 
-<section class="services" id="services">
-    <h1 class="heading"> Klinik <span>Servislerimiz</span></h1>
+@model IPagedList<Comments>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<section class="review" id="review">
+
+    <h1 class="heading"> Müşteri <span>Yorumları</span></h1>
 
     <div class="box-container">
-        @foreach (var hizmet in Model)
+
+
+        @foreach (var comment in Model)
         {
             <div class="box">
-                <i class="@hizmet.Icon"></i>
-                <h3>@hizmet.Ad</h3>
-                <p>@hizmet.Aciklama</p>
-                <a href="#" class="btn"> Daha Fazlası <span class="fas fa-chevron-right"></span> </a>
+                <img src="~/images/guy-walking-with-dog-in-the-park.svg" alt="" />
+                <h3>@comment.Ad</h3>
+                <div class="stars">
+                    <p>@comment.Puan</p>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="text">@comment.Yorum</p>
+                <a href="#" class="btn"> Daha Fazlası <span class="fas fa-chevron-right"></span></a>
             </div>
         }
-    </div>
 
-
-
-
-
-        <!--
-    <div class="box-container">
-        <div class="box">
-            <i class="fas fa-notes-medical"></i>
-            <h3>Çok Güzel Hizmetler Var Dayıcım</h3>                                             
-            <p>asdasdasdasd</p>
-            <a href="#" class="btn"> Daha Fazlası <span class="fas fa-chevron-right"></span> </a>
-        </div>
         
-        <div class="box">
-            <i class="fas fa-clock"></i>
-            <h3>7/24 Hizmet</h3>
-            <p>lorem124 dolor sit amte asdfsa asdkasd aksdkasd asda. asdkasd  asdasd.fasd</p>
-            <a href="#" class="btn"> Daha Fazlası <span class="fas fa-chevron-right"></span> </a>
-        </div>
-        <div class="box">
-            <i class="fas fa-user-md"></i>
-            <h3>Uzman Doktorlar</h3>
-            <p>lorem124 dolor sit amte asdfsa asdkasd aksdkasd asda. asdkasd  asdasd.fasd</p>
-            <a href="#" class="btn"> Daha Fazlası <span class="fas fa-chevron-right"></span> </a>
-        </div>
-        <div class="box">
-            <i class="fas fa-pills"></i>
-            <h3>Tedavi ve İlaçlar</h3>
-            <p>lorem124 dolor sit amte asdfsa asdkasd aksdkasd asda. asdkasd  asdasd.fasd</p>
-            <a href="#" class="btn"> Daha Fazlası <span class="fas fa-chevron-right"></span> </a>
-        </div>
-        <div class="box">
-            <i class="fas fa-procedures"></i>
-            <h3>Yatış Hizmeti</h3>
-            <p>lorem124 dolor sit amte asdfsa asdkasd aksdkasd asda. asdkasd  asdasd.fasd</p>
-            <a href="#" class="btn"> Daha Fazlası <span class="fas fa-chevron-right"></span> </a>
-        </div>
-        <div class="box">
-            <i class="fas fa-heartbeat"></i>
-            <h3>Tam Bakım</h3>
-            <p>lorem124 dolor sit amte asdfsa asdkasd aksdkasd asda. asdkasd  asdasd.fasd</p>
-            <a href="#" class="btn"> Daha Fazlası <span class="fas fa-chevron-right"></span> </a>
-        </div>
-            
-    </div>
-            -->
-            
 
+    </div>
+    <div class="btn btn-success my-3">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+    </div>
 </section>
+
 
 <section class="footer">
     <div class="box-container">
@@ -111,4 +86,21 @@
     </div>
 
     <div class="credit"> created by <span>Serkan Özdemir</span></div>
+
+    @{
+        //TODO jquery kullanımı
+    };
+    <div class="credit">
+        <button class="btn btn-success my-3" id="changeTextButton">Patili Dostlarımızı Seviyorsan Tıkla</button>
+        <p id="targetText">???</p>
+
+        <script>
+            $(document).ready(function () {
+                $("#changeTextButton").click(function () {
+                    $("#targetText").text("Bizde Öyle Düşünmüştük! Görüşün İçin Teşekkürler :)");
+                });
+            });
+        </script>
+    </div>
+
 </section>

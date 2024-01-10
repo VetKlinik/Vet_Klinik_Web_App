@@ -6,8 +6,9 @@ using VetKlinik.Services;
 using Microsoft.AspNetCore.Authorization;
 using VetKlinik.Data;
 
-namespace VetKlinik.Controllers
+namespace VetKlinik.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class PersonelController : Controller
     {
         private readonly IPersonelService _personelService;
@@ -16,19 +17,19 @@ namespace VetKlinik.Controllers
         {
             _personelService = personelService;
         }
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Index()
         {
             var personeller = _personelService.GetPersoneller();
 
             return View(personeller);
         }
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Ekle()
         {
             return View();
         }
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         [HttpPost]
         public IActionResult Ekle(PersonelEkleGuncelleDto input)
         {
@@ -36,7 +37,7 @@ namespace VetKlinik.Controllers
 
             return RedirectToAction("Index");
         }
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Guncelle(int id)
         {
             var personel = _personelService.GetPersonelById(id);
@@ -64,7 +65,7 @@ namespace VetKlinik.Controllers
 
             return View();
         }
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         [HttpPost]
         public IActionResult Guncelle(PersonelEkleGuncelleDto input)
         {
@@ -72,7 +73,7 @@ namespace VetKlinik.Controllers
 
             return RedirectToAction("Index");
         }
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Sil(int id)
         {
             _personelService.DeletePersonelById(id);

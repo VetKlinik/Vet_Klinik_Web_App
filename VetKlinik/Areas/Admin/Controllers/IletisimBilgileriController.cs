@@ -6,8 +6,9 @@ using VetKlinik.Services;
 using Microsoft.AspNetCore.Authorization;
 using VetKlinik.Data;
 
-namespace VetKlinik.Controllers
+namespace VetKlinik.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class IletisimBilgileriController : Controller
     {
         private readonly IIletisimService _service;
@@ -16,30 +17,30 @@ namespace VetKlinik.Controllers
         {
             _service = service;
         }
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Index()
         {
             var IB = _service.GetIletisimBilgileri;
             var asd = new IletisimBilgileri()
             {
-                Adres="asd",
-                XLink="asd",
-                LinkedinLink="asd",
-                FacebookLink="asd",
-                PinterestLink="asd",
-                InstagramLink="asd",
+                Adres = "asd",
+                XLink = "asd",
+                LinkedinLink = "asd",
+                FacebookLink = "asd",
+                PinterestLink = "asd",
+                InstagramLink = "asd",
                 TelefonNumaralari = ["asd"],
                 EmailAdresleri = ["asd"],
             };
 
             return View(asd);
         }
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Ekle()
         {
             return View();
         }
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         [HttpPost]
         public IActionResult Ekle(IletisimBilgileriEkleGuncelleDto input)
         {
@@ -48,7 +49,7 @@ namespace VetKlinik.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Guncelle(int id)
         {
             var IB = _service.GetIletisimBilgileriById(id);
@@ -72,7 +73,7 @@ namespace VetKlinik.Controllers
 
             return View();
         }
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         [HttpPost]
         public IActionResult Guncelle(IletisimBilgileriEkleGuncelleDto input)
         {
@@ -81,13 +82,13 @@ namespace VetKlinik.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Temizle()
         {
             //_service.ClearField();
             return RedirectToAction("Index");
         }
-        [Authorize(Roles = UserRoles.Role_Admin)]
+        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Sil()
         {
             _service.DeleteIletisimBilgileri();

@@ -1,0 +1,49 @@
+﻿@using VetKlinik.Dto
+@using VetKlinik.Extensions
+@model CommentsEkleGuncelleDto
+
+<link rel="stylesheet" href="sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/js/alerts.js"></script>
+
+@{
+    var modelState = ViewData.ModelState;
+}
+
+<div id="sizedBox"></div>
+
+<div class="card">
+    <div class="card-header">
+        Yorum Ekleme Sayfası
+    </div>
+    <div class="card-body">
+
+        @using (Html.BeginForm("Ekle", "Review", FormMethod.Post))
+        //TODO html helper kullanımı
+        {
+            <div class="my-3">
+                <label class="form-label" for="Ad">Ad</label>
+                @Html.TextBoxFor(x => x.Ad, "", new { @class = "form-control", placeHolder = "Yorumlar kısmında görünecek adınızı giriniz" })
+                @Html.ValidationMessageFor(m => m.Ad)<br />
+                <label class="form-label" for="Yorum">Yorum</label>
+                @Html.TextBoxFor(x => x.Yorum, "", new { @class = "form-control", placeHolder = "Yorumunuzu yazınız" })
+                @Html.ValidationMessageFor(m => m.Yorum)<br />
+                <label class="form-label" for="Yorum">Puan</label>
+                @Html.TextBoxFor(x => x.Puan, "", new { @class = "form-control", placeHolder = "1-5 arası puan giriniz" })
+                @Html.ValidationMessageFor(m => m.Puan)<br />
+            </div>
+
+            //TODO custom html helper kullanımı
+            @Html.CustomSaveButton("Kaydet", "showSuccessMessage()", new { @class = "btn btn-success my-3" })
+        }
+    </div>
+</div>
+
+@*
+    //TODO Client side validation kullanımı
+*@
+@section scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
