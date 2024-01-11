@@ -7,7 +7,7 @@
         <h2>Hizmetler</h2>
     </div>
     <div class="card-body">
-        <table class="table table-striped">
+        <table id="dataTable" class="table table-striped">
             @Html.ActionLink("Ekle", "Ekle", "Services", null, new { @class = "btn btn-primary my-3" })
             <span style="margin-left: 10px;"></span>
             @Html.ActionLink("Görüntüle", "Index", "Services", null, new { @class = "btn btn-primary my-3" })
@@ -17,7 +17,8 @@
                     <th>Ad</th>
                     <th>Açıklama</th>
                     <th>Icon Sınıfı</th>
-                    <th></th>
+                    <th>Düzenle</th>
+                    <th>Sil</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,3 +38,15 @@
         </table>
     </div>
 </div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- DataTables CSS ve JS dosyaları -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.js"></script>
+
+
+@section DTable{
+    <script src="~/js/datatables.js"></script>
+}

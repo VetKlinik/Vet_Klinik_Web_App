@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using VetKlinik.Areas.Admin.Services;
 using VetKlinik.Data;
 using VetKlinik.Services;
 
@@ -28,6 +29,7 @@ namespace VetKlinik
             builder.Services.AddScoped<IPersonelService, PersonelService>();
             builder.Services.AddScoped<IFotografService, FotografService>();
             builder.Services.AddScoped<IHizmetlerService, HizmetlerService>();
+            builder.Services.AddScoped<IGetServicesDataService, GetServicesDataService>();
             builder.Services.AddScoped<IIletisimService, IletisimService>();
             builder.Services.AddScoped<IMateryalService, MateryalService>();
             builder.Services.AddScoped<IMusteriService, MusteriService>();

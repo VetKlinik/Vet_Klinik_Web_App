@@ -7,6 +7,7 @@ using VetKlinik.Services;
 using Microsoft.AspNetCore.Authorization;
 using VetKlinik.Data;
 using VetKlinik.Areas.Admin.Data;
+using VetKlinik.Areas.Admin.Services;
 
 namespace VetKlinik.Areas.Admin.Controllers
 {
@@ -15,10 +16,12 @@ namespace VetKlinik.Areas.Admin.Controllers
     public class ServicesController : Controller
     {
         private readonly IHizmetlerService _hizmetlerContext;
+        private readonly IGetServicesDataService _getServicesDataService;
 
-        public ServicesController(IHizmetlerService hizmetlerContext)
+        public ServicesController(IHizmetlerService hizmetlerContext, IGetServicesDataService getServicesDataService)
         {
             _hizmetlerContext = hizmetlerContext;
+            _getServicesDataService = getServicesDataService;
         }
 
         public IActionResult Index()
@@ -34,6 +37,14 @@ namespace VetKlinik.Areas.Admin.Controllers
             var hizmetler = _hizmetlerContext.GetHizmetler();
 
             return View(hizmetler);
+        }
+
+        //TODO TASK'A GEÇİŞ YAPILABİLİR MAYBE
+        public async Task<IActionResult> GetServicesData()
+        {
+            var servicesData = await _getServicesDataService.GetServicesData();
+
+            return View(servicesData);
         }
         public IActionResult Ekle()
         {
@@ -76,5 +87,6 @@ namespace VetKlinik.Areas.Admin.Controllers
             _hizmetlerContext.DeleteHizmetById(id);
             return RedirectToAction("Index1");
         }
+
     }
 }
