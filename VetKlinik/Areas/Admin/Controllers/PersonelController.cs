@@ -5,10 +5,12 @@ using VetKlinik.Dto;
 using VetKlinik.Services;
 using Microsoft.AspNetCore.Authorization;
 using VetKlinik.Data;
+using VetKlinik.Areas.Admin.Data;
 
 namespace VetKlinik.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = UserRoles.Role_Admin)]
     public class PersonelController : Controller
     {
         private readonly IPersonelService _personelService;
@@ -17,19 +19,16 @@ namespace VetKlinik.Areas.Admin.Controllers
         {
             _personelService = personelService;
         }
-        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Index()
         {
             var personeller = _personelService.GetPersoneller();
 
             return View(personeller);
         }
-        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Ekle()
         {
             return View();
         }
-        //[Authorize(Roles = UserRoles.Role_Admin)]
         [HttpPost]
         public IActionResult Ekle(PersonelEkleGuncelleDto input)
         {
@@ -37,7 +36,6 @@ namespace VetKlinik.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
-        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Guncelle(int id)
         {
             var personel = _personelService.GetPersonelById(id);
@@ -65,7 +63,6 @@ namespace VetKlinik.Areas.Admin.Controllers
 
             return View();
         }
-        //[Authorize(Roles = UserRoles.Role_Admin)]
         [HttpPost]
         public IActionResult Guncelle(PersonelEkleGuncelleDto input)
         {
@@ -73,7 +70,6 @@ namespace VetKlinik.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
-        //[Authorize(Roles = UserRoles.Role_Admin)]
         public IActionResult Sil(int id)
         {
             _personelService.DeletePersonelById(id);

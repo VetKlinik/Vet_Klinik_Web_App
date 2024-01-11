@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using VetKlinik.Data;
+using VetKlinik.Areas.Admin.Data;
 using VetKlinik.Dto;
 using VetKlinik.Models;
 using VetKlinik.Services;

@@ -1,4 +1,4 @@
-﻿namespace VetKlinik.Data
+﻿namespace VetKlinik.Areas.Admin.Data
 {
     public static class UserRoles
     {
