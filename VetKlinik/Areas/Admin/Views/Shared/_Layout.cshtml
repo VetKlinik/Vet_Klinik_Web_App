@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>VetKlinik Admin</title>
-    
+
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -188,7 +188,6 @@
             </ul>
         </nav>
         <!-- /.navbar -->
-
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
@@ -297,13 +296,14 @@
                             </a>
                         </li>
                         <li id="adminMenu" class="nav-item">
-                            <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <p>
-                                    Çıkış
-                                </p>
-                            </a>
+                            <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                                <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer; outline: none;">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <p>Çıkış</p>
+                                </button>
+                            </form>
                         </li>
+
 
 
                     </ul>
